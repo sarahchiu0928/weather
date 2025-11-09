@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import { useWeather } from './WeatherProvider/useWeather'
 import { useCurrentWeather } from '../hooks-api/useCurrentWeather'
+import { useForecastWeather } from '../hooks-api/useForecastWeather'
 import { WeatherIcon } from './WeatherIcon'
 import { Stack } from '@mui/material'
 
@@ -13,8 +14,19 @@ export function WeatherCard () {
     setHasWeatherData(true)
   }
   const { data: currentWeatherData } = useCurrentWeather({ lat, lon, onSuccess: getCurrentWeatherSuccess })
+  const { dailyTemperatureRange } = useForecastWeather({ lat, lon })
 
   const { weather, main, wind, name } = currentWeatherData || {}
+
+  const todayKey = new Date().toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' })
+  const todayTemperatureRange = dailyTemperatureRange.find(item => item.date === todayKey) ?? dailyTemperatureRange[0]
+
+  const formatTemperature = (value?: number | null) => {
+    if (typeof value === 'number' && Number.isFinite(value)) {
+      return `${value.toFixed(1)}°C`
+    }
+    return '--'
+  }
 
   return (
     <Box
@@ -68,7 +80,7 @@ export function WeatherCard () {
                   最高溫度
                 </Typography>
                 <Typography sx={{ fontSize: '24px' }}>
-                  {`${Number(main?.temp_max).toFixed(1)}°C`}
+                  {formatTemperature(todayTemperatureRange?.max ?? '--')}
                 </Typography>
               </Stack>
               <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
@@ -76,7 +88,7 @@ export function WeatherCard () {
                   最低溫度
                 </Typography>
                 <Typography sx={{ fontSize: '24px' }}>
-                  {`${Number(main?.temp_min).toFixed(1)}°C`}
+                  {formatTemperature(todayTemperatureRange?.min ?? '--')}
                 </Typography>
               </Stack>
             </Stack>

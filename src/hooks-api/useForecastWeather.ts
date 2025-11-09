@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import useSWR from 'swr'
 import { WEATHER_API_URL } from '../constants/baseUrls' // 定義的API URL
 import { weatherSWRFetcher } from '../utils/weatherSWRFetcher'// 自定義的fetcher
@@ -16,9 +17,28 @@ export function useForecastWeather ({ lat, lon }: ForecastWeatherProps) {
     revalidateOnFocus: false,
   })
 
+  const dailyTemperatureRange = useMemo(() => {
+    if (!data?.list) return []
+
+    const groupByDay: Record<string, number[]> = {}
+
+    data.list.forEach(item => {
+      const date = new Date(item.dt * 1000).toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' })
+      if (!groupByDay[date]) groupByDay[date] = []
+      groupByDay[date].push(item.main.temp)
+    })
+
+    return Object.entries(groupByDay).map(([date, temps]) => ({
+      date,
+      min: Math.min(...temps),
+      max: Math.max(...temps),
+    }))
+  }, [data?.list])
+
   return {
     data,
     error,
     isLoading,
+    dailyTemperatureRange,
   }
 }

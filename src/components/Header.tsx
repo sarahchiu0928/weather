@@ -26,7 +26,6 @@ export function Header () {
       flexDirection="row"
       sx={{
         width: '100%',
-        background: 'var(--card-bg, linear-gradient(180deg, rgba(212, 229, 236, 0.56) 0%, rgba(231, 236, 242, 0.56) 100%))',
       }}
     >
       <TextField

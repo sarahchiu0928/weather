@@ -1,6 +1,5 @@
 import React from 'react'
 import { Stack } from '@mui/material'
-import bgImage from '@assets/images/homepage.svg'
 
 interface WeatherProps {
   children?: React.ReactNode,
@@ -12,11 +11,9 @@ export function WeatherBg ({ children }: WeatherProps) {
       minHeight="100vh"
       direction="column"
       alignItems="center"
-      color="#ffffff"
+      color="#566489"
       sx={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundColor: '#BCD0DB',
       }}
     >
       {children}

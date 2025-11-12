@@ -7,12 +7,12 @@ import { format } from 'date-fns'
 import { DATE_FORMAT } from '../constants/format'
 
 const INCREMENT = 8
-const REPETITIONS = 5
+const REPETITIONS = 6
 
 export function WeeklyForecast () {
   const { coordinates: { lat, lon }, searchLoading } = useWeather()
   // 使用自定義的 `useForecastWeather` hook-api，根據經緯度（lat, lon）獲取天氣數據
-  const { data: forecastWeatherData } = useForecastWeather({ lat, lon })
+  const { data: forecastWeatherData, dailyTemperatureRange } = useForecastWeather({ lat, lon })
 
   // 找到未來天氣預報的起始索引
   // `forecastWeatherData.list` 是預報的天氣數據列表，`dt_txt` 是日期時間字串
@@ -41,12 +41,15 @@ export function WeeklyForecast () {
         fiveDayForecast?.map((item, index) => {
           const safeDate = item?.dt_txt ? new Date(item.dt_txt) : new Date()
           const weatherIconCode = item?.weather[0].icon
+          const dayKey = safeDate.toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' })
+          const tempRange = dailyTemperatureRange.find(range => range.date === dayKey) ?? dailyTemperatureRange[index]
           return (
             <Grid item xs="auto" key={item?.dt_txt ?? index}>
               <ForecastCard
                 day={format(safeDate, DATE_FORMAT)}
                 weatherIconCode={weatherIconCode}
-                temp={item?.main.temp_max}
+                maxTemp={tempRange?.max}
+                minTemp={tempRange?.min}
                 humidity={item?.main.humidity}
               />
             </Grid>

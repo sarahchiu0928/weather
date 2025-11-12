@@ -4,6 +4,7 @@ import { WeatherCard } from './WeatherCard'
 import { WeeklyForecast } from './WeeklyForecast'
 import { useWeather } from './WeatherProvider/useWeather'
 import { CircularProgress, Stack, Typography } from '@mui/material'
+import { VStack } from '../ui/VStack'
 
 export function WeatherLayout () {
   const { searchLoading, coordinates } = useWeather()
@@ -20,10 +21,10 @@ export function WeatherLayout () {
       }
       {
         hasGeoData && !searchLoading
-          ? <Stack mt={4} direction="column" alignItems="center" gap={4}>
+          ? <VStack mt={1} alignItems="center" gap={2} p={1.5} width="100%">
             <WeatherCard />
             <WeeklyForecast />
-          </Stack>
+          </VStack>
           : <Typography mt={5} variant="h5">找不到您輸入的城市</Typography>
       }
     </WeatherBg>

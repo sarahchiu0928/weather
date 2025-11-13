@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Unstable_Grid2 as Grid } from '@mui/material'
 import { ForecastCard } from './ForecastCard'
 import { useWeather } from './WeatherProvider/useWeather'
 import { useForecastWeather } from '../hooks-api/useForecastWeather'
@@ -17,7 +17,7 @@ export function WeeklyForecast () {
   // 找到未來天氣預報的起始索引
   // `forecastWeatherData.list` 是預報的天氣數據列表，`dt_txt` 是日期時間字串
   // 這裡查找第一個未來日期的索引，若數據不存在則默認為 0
-  const startIndex = forecastWeatherData?.list.findIndex(item => new Date(item.dt_txt) > new Date()
+  const startIndex = forecastWeatherData?.list.findIndex(item => new Date(item.dt_txt) === new Date()
   ) ?? 0
 
   // 根據起始索引計算需要的索引集合
@@ -36,6 +36,7 @@ export function WeeklyForecast () {
       spacing={2}
       justifyContent="center"
       alignContent="center"
+      width="100%"
     >
       {forecastWeatherData && !searchLoading && (
         fiveDayForecast?.map((item, index) => {
@@ -44,7 +45,7 @@ export function WeeklyForecast () {
           const dayKey = safeDate.toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' })
           const tempRange = dailyTemperatureRange.find(range => range.date === dayKey) ?? dailyTemperatureRange[index]
           return (
-            <Grid item xs="auto" key={item?.dt_txt ?? index}>
+            <Grid lg={2} md={4} xs={6} key={item?.dt_txt ?? index}>
               <ForecastCard
                 day={format(safeDate, DATE_FORMAT)}
                 weatherIconCode={weatherIconCode}

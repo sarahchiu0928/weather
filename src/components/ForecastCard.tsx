@@ -32,7 +32,6 @@ export function ForecastCard ({
         boxShadow: '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
         px: 1,
         py: 3,
-        mb: 2,
       }}
     >
       {/* 日期 */}

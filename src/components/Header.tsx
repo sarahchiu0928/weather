@@ -5,6 +5,7 @@ import { useWeather } from './WeatherProvider/useWeather'
 import { type WeatherGeo } from '../types/WeatherGeo'
 import { HStack } from '../ui/HStack'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import SearchIcon from '@mui/icons-material/Search'
 
 import Icon from '@assets/lottie/icon.lottie'
 
@@ -35,7 +36,12 @@ export function Header () {
         width: '100%',
       }}
     >
-      <HStack gap={1} alignItems="center">
+      <HStack
+        gap={1}
+        alignItems="center"
+        justifyContent={{ xs: 'center', sm: 'flex-start' }}
+        width={{ xs: '100%', sm: 'auto' }}
+      >
         <Box sx={{ width: '40px', height: '40px' }}>
           <DotLottieReact src={Icon} loop autoplay renderConfig={{ autoResize: true }} />
         </Box>
@@ -50,12 +56,18 @@ export function Header () {
         <TextField
           variant="outlined"
           autoComplete="off"
+          placeholder="Weather in your city"
           sx={{
             flex: { xs: 1, sm: '0 0 400px' },
             minWidth: 0,
             height: '40px',
             '& .MuiInputBase-root': {
               height: '40px',
+              backgroundColor: 'rgba(255, 255, 255, 0.25)',
+              borderRadius: '4px',
+              '& fieldset': {
+                border: 'none',
+              },
             },
           }}
           onChange={(e) => setCity(e.target.value)}
@@ -67,9 +79,10 @@ export function Header () {
             height: '40px',
             flexShrink: 0,
           }}
+          aria-label="搜尋"
           onClick={() => setCityQuery(city)}
         >
-          {searchLoading ? <CircularProgress size={32} /> : '搜尋'}
+          {searchLoading ? <CircularProgress size={24} /> : <SearchIcon />}
         </Button>
       </HStack>
     </HStack>

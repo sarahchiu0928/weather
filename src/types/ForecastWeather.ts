@@ -1,4 +1,5 @@
 import { type Coordinates } from './Coordinates'
+import { type WeatherCode } from './CurrentWeather'
 
 export interface ForecastWeather {
   cod: string,
@@ -60,7 +61,7 @@ interface Weather {
   id: number,
   main: string,
   description: string,
-  icon: string,
+  icon: WeatherCode,
 }
 
 interface Wind {

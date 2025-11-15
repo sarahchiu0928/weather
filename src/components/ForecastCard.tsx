@@ -2,10 +2,11 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { WeatherIcon } from './WeatherIcon'
 import Grid from '@mui/material/Grid'
+import { type WeatherCode } from '../types/CurrentWeather'
 
 interface ForecastCardProps {
   day?: string,
-  weatherIconCode?: string,
+  weatherIconCode?: WeatherCode,
   maxTemp?: number,
   minTemp?: number,
   humidity?: number,

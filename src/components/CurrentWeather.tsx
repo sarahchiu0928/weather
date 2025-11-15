@@ -32,6 +32,7 @@ export function CurrentWeather () {
     <VStack
       gap={3}
       width="100%"
+      height="100%"
       sx={{
         backgroundColor: '#E3EDF7',
         px: 4,
@@ -51,12 +52,12 @@ export function CurrentWeather () {
       </VStack>
       <HStack gap={2} justifyContent="center">
         <WeatherIcon iconCode={iconCode} />
-        <HStack gap={0.25}>
+        <HStack gap={0.25} alignItems="center">
           <Typography sx={{ fontWeight: 'bold', fontSize: '3rem' }}>
             {typeof temperature === 'number' ? temperature.toFixed(1) : '--'}
           </Typography>
           <HStack>
-            <Typography sx={{ fontSize: '1.5rem' }}>
+            <Typography sx={{ fontSize: '2rem' }}>
               °C
             </Typography>
           </HStack>

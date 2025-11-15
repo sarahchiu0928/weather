@@ -34,5 +34,6 @@ export default defineConfig(({ mode }) => {
         '@assets': resolve(__dirname, './assets'),
       },
     },
+    assetsInclude: ['**/*.lottie'],
   }
 })

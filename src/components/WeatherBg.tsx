@@ -1,5 +1,6 @@
 import React from 'react'
 import { Stack } from '@mui/material'
+import { FONT_COLOR } from '../constants/colors'
 
 interface WeatherProps {
   children?: React.ReactNode,
@@ -11,7 +12,7 @@ export function WeatherBg ({ children }: WeatherProps) {
       minHeight="100vh"
       direction="column"
       alignItems="center"
-      color="#566489"
+      color={FONT_COLOR}
       sx={{
         backgroundColor: '#BCD0DB',
       }}

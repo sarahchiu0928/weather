@@ -5,6 +5,7 @@ import { WeeklyForecast } from './WeeklyForecast'
 import { useWeather } from './WeatherProvider/useWeather'
 import { CircularProgress, Stack, Typography } from '@mui/material'
 import { VStack } from '../ui/VStack'
+import { FONT_COLOR } from '../constants/colors'
 
 export function WeatherLayout () {
   const { searchLoading, coordinates } = useWeather()
@@ -21,7 +22,7 @@ export function WeatherLayout () {
       }
       {
         hasGeoData && !searchLoading
-          ? <VStack mt={1} alignItems="center" gap={2} p={1.5} width="100%">
+          ? <VStack mt={1} alignItems="center" gap={2} p={1.5} width="100%" color={FONT_COLOR}>
             <WeatherCard />
             <WeeklyForecast />
           </VStack>

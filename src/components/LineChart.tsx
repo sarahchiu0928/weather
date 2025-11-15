@@ -5,6 +5,7 @@ import { useWeather } from './WeatherProvider/useWeather'
 import { useForecastWeather } from '../hooks-api/useForecastWeather'
 import { format } from 'date-fns'
 import { DATE_FORMAT } from '../constants/format'
+import { CARD_BACKGROUND, CARD_SHADOW } from '../constants/colors'
 
 const INCREMENT = 8
 const REPETITIONS = 6
@@ -39,9 +40,9 @@ export default function TemperatureChart () {
   return (
     <VStack
       sx={{
-        backgroundColor: '#E3EDF7',
+        backgroundColor: CARD_BACKGROUND,
         borderRadius: '16px',
-        boxShadow: '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
+        boxShadow: CARD_SHADOW,
         height: '100%',
         px: 3,
       }}

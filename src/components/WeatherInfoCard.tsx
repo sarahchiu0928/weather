@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { VStack } from '../ui/VStack'
+import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR } from '../constants/colors'
 
 interface WeatherInfoCardProps {
   title: string,
@@ -10,20 +11,20 @@ export function WeatherInfoCard ({ title, value }: WeatherInfoCardProps) {
   return (
     <VStack
       sx={{
-        backgroundColor: '#E3EDF7',
+        backgroundColor: CARD_BACKGROUND,
         borderRadius: '20px',
         py: '41px',
-        boxShadow: '0px 4px 0px 0px rgba(0,0,0,0.25)',
+        boxShadow: CARD_SHADOW,
         gap: 3,
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
       }}
     >
-      <Typography sx={{ fontSize: '16px', color: '#5A6E8C' }}>
+      <Typography sx={{ fontSize: '16px', color: FONT_COLOR }}>
         {title}
       </Typography>
-      <Typography sx={{ fontSize: '28px', fontWeight: 'bold', color: '#5A6E8C' }}>
+      <Typography sx={{ fontSize: '28px', fontWeight: 'bold', color: FONT_COLOR }}>
         {value}
       </Typography>
     </VStack>

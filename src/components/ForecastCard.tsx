@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography'
 import { WeatherIcon } from './WeatherIcon'
 import Grid from '@mui/material/Grid'
 import { type WeatherCode } from '../types/CurrentWeather'
+import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR } from '../constants/colors'
 
 interface ForecastCardProps {
   day?: string,
@@ -28,9 +29,9 @@ export function ForecastCard ({
   return (
     <Box
       sx={{
-        background: '#E3EDF7',
+        background: CARD_BACKGROUND,
         borderRadius: '15px',
-        boxShadow: '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
+        boxShadow: CARD_SHADOW,
         px: 1,
         py: 3,
       }}
@@ -49,7 +50,7 @@ export function ForecastCard ({
           sx={{
             backgroundColor: '#F9FBFD',
             borderRadius: '15px',
-            boxShadow: '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
+            boxShadow: CARD_SHADOW,
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -65,14 +66,14 @@ export function ForecastCard ({
               borderRight: '1px solid #D3DEE9',
             }}
           >
-            <Typography sx={{ fontSize: '15px', color: '#5A6E8C' }}>
+            <Typography sx={{ fontSize: '15px', color: FONT_COLOR }}>
               最高
             </Typography>
             <Typography
               sx={{
                 fontSize: '15px',
                 fontWeight: 'bold',
-                color: '#5A6E8C',
+                color: FONT_COLOR,
                 pr: 1,
               }}
             >
@@ -82,14 +83,14 @@ export function ForecastCard ({
 
           {/* 右邊：最低 */}
           <Box sx={{ flex: 1, textAlign: 'center' }}>
-            <Typography sx={{ fontSize: '15px', color: '#5A6E8C' }}>
+            <Typography sx={{ fontSize: '15px', color: FONT_COLOR }}>
               最低
             </Typography>
             <Typography
               sx={{
                 fontSize: '15px',
                 fontWeight: 'bold',
-                color: '#5A6E8C',
+                color: FONT_COLOR,
                 pl: 1,
               }}
             >

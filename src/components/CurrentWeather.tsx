@@ -5,6 +5,7 @@ import { useCurrentWeather } from '../hooks-api/useCurrentWeather'
 import { useForecastWeather } from '../hooks-api/useForecastWeather'
 import { VStack } from '../ui/VStack'
 import { HStack } from '../ui/HStack'
+import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR } from '../constants/colors'
 
 const formatTemperature = (value?: number | null) => {
   if (typeof value === 'number' && Number.isFinite(value)) {
@@ -34,11 +35,11 @@ export function CurrentWeather () {
       width="100%"
       height="100%"
       sx={{
-        backgroundColor: '#E3EDF7',
+        backgroundColor: CARD_BACKGROUND,
         px: 4,
         py: 5,
         borderRadius: '16px',
-        boxShadow: '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
+        boxShadow: CARD_SHADOW,
       }}
     >
       <VStack gap={0.5}>
@@ -66,7 +67,7 @@ export function CurrentWeather () {
       <HStack justifyContent="center" flex={1} sx={{
         backgroundColor: '#F9FBFD',
         borderRadius: '16px',
-        boxShadow: '0px 2px 0px 0px rgba(0, 0, 0, 0.25)',
+        boxShadow: CARD_SHADOW,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -75,15 +76,15 @@ export function CurrentWeather () {
       >
         <HStack width="100%">
           <VStack flex={1} sx={{ alignItems: 'center' }}>
-            <Typography sx={{ color: '#5A6E8C' }}>最高</Typography>
-            <Typography sx={{ fontWeight: 'bold', color: '#5A6E8C' }}>
+            <Typography sx={{ color: FONT_COLOR }}>最高</Typography>
+            <Typography sx={{ fontWeight: 'bold', color: FONT_COLOR }}>
               {formatTemperature(todayTemperatureRange?.max)}
             </Typography>
           </VStack>
           <Divider orientation="vertical" flexItem />
           <VStack flex={1} sx={{ alignItems: 'center' }}>
-            <Typography sx={{ color: '#5A6E8C' }}>最低</Typography>
-            <Typography sx={{ fontWeight: 'bold', color: '#5A6E8C' }}>
+            <Typography sx={{ color: FONT_COLOR }}>最低</Typography>
+            <Typography sx={{ fontWeight: 'bold', color: FONT_COLOR }}>
               {formatTemperature(todayTemperatureRange?.min)}
             </Typography>
           </VStack>

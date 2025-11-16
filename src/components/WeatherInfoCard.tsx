@@ -11,7 +11,7 @@ export function WeatherInfoCard ({ title, value }: WeatherInfoCardProps) {
   return (
     <VStack
       sx={{
-        backgroundColor: CARD_BACKGROUND,
+        background: CARD_BACKGROUND,
         borderRadius: '20px',
         py: '41px',
         boxShadow: CARD_SHADOW,

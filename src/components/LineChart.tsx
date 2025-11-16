@@ -40,7 +40,7 @@ export default function TemperatureChart () {
   return (
     <VStack
       sx={{
-        backgroundColor: CARD_BACKGROUND,
+        background: CARD_BACKGROUND,
         borderRadius: '16px',
         boxShadow: CARD_SHADOW,
         height: '100%',

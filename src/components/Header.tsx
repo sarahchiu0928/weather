@@ -77,6 +77,15 @@ export function Header () {
           disabled={searchLoading || !city}
           sx={{
             height: '40px',
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            borderRadius: '4px',
+            minWidth: 0,
+            px: 1,
+
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.35)',
+              borderColor: 'transparent',
+            },
             flexShrink: 0,
           }}
           aria-label="搜尋"

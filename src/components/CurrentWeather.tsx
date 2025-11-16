@@ -5,7 +5,7 @@ import { useCurrentWeather } from '../hooks-api/useCurrentWeather'
 import { useForecastWeather } from '../hooks-api/useForecastWeather'
 import { VStack } from '../ui/VStack'
 import { HStack } from '../ui/HStack'
-import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR } from '../constants/colors'
+import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR, CARD_INFO } from '../constants/colors'
 
 const formatTemperature = (value?: number | null) => {
   if (typeof value === 'number' && Number.isFinite(value)) {
@@ -35,7 +35,7 @@ export function CurrentWeather () {
       width="100%"
       height="100%"
       sx={{
-        backgroundColor: CARD_BACKGROUND,
+        background: CARD_BACKGROUND,
         px: 4,
         py: 5,
         borderRadius: '16px',
@@ -65,7 +65,7 @@ export function CurrentWeather () {
         </HStack>
       </HStack>
       <HStack justifyContent="center" flex={1} sx={{
-        backgroundColor: '#F9FBFD',
+        background: CARD_INFO,
         borderRadius: '16px',
         boxShadow: CARD_SHADOW,
         display: 'flex',

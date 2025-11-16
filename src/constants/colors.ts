@@ -1,3 +1,5 @@
-export const CARD_BACKGROUND = '#E3EDF7'
-export const CARD_SHADOW = '0px 4px 0px 0px rgba(0, 0, 0, 0.25)'
+export const CARD_BACKGROUND = 'radial-gradient(circle, #A2BDD8 0%, #E3EDF7 60%, #E3EDF7 100%)'
+export const CARD_INFO = 'rgba(249, 251, 253, 0.6)'
+export const BORDER_RADIUS = '10px'
+export const CARD_SHADOW = '0px 4px 2px 0px rgba(0, 0, 0, 0.25)'
 export const FONT_COLOR = '#5A6E8C'

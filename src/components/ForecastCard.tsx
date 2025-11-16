@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography'
 import { WeatherIcon } from './WeatherIcon'
 import Grid from '@mui/material/Grid'
 import { type WeatherCode } from '../types/CurrentWeather'
-import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR } from '../constants/colors'
+import { CARD_BACKGROUND, CARD_SHADOW, FONT_COLOR, CARD_INFO, BORDER_RADIUS } from '../constants/colors'
 
 interface ForecastCardProps {
   day?: string,
@@ -48,8 +48,8 @@ export function ForecastCard ({
       <Grid item xs={12}>
         <Box
           sx={{
-            backgroundColor: '#F9FBFD',
-            borderRadius: '15px',
+            background: CARD_INFO,
+            borderRadius: BORDER_RADIUS,
             boxShadow: CARD_SHADOW,
             display: 'flex',
             justifyContent: 'space-between',
